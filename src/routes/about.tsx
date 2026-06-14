@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout, PageHero } from "@/components/site/PageLayout";
-import aboutImg from "@/assets/about.jpg";
+import aboutImg from "@/assets/about-interior.png.asset.json";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/about")({
@@ -23,7 +23,7 @@ function AboutPage() {
     <PageLayout>
       <PageHero eyebrow={t("about.eyebrow")} title={t("about.title")} subtitle={t("about.p1")} />
       <section className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <img src={aboutImg} alt="Luxury chauffeur interior" width={1280} height={960} loading="lazy" className="rounded-2xl object-cover" style={{ boxShadow: "var(--shadow-elegant)" }} />
+        <img src={aboutImg.url} alt="Luxury chauffeur interior" width={1280} height={960} loading="lazy" className="rounded-2xl object-cover" style={{ boxShadow: "var(--shadow-elegant)" }} />
         <div>
           <p className="text-base leading-relaxed text-muted-foreground">{t("about.p2")}</p>
           <div className="mt-8 grid grid-cols-3 gap-6 border-t border-border pt-8">
