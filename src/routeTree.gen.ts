@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ReservierungenRouteImport } from './routes/reservierungen'
 import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -26,6 +27,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReservierungenRoute = ReservierungenRouteImport.update({
+  id: '/reservierungen',
+  path: '/reservierungen',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ImpressumRoute = ImpressumRouteImport.update({
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
+  '/reservierungen': typeof ReservierungenRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/reservierung/$token': typeof ReservierungTokenRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
+  '/reservierungen': typeof ReservierungenRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/reservierung/$token': typeof ReservierungTokenRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
+  '/reservierungen': typeof ReservierungenRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/reservierung/$token': typeof ReservierungTokenRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/datenschutz'
     | '/impressum'
+    | '/reservierungen'
     | '/services'
     | '/sitemap.xml'
     | '/reservierung/$token'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/datenschutz'
     | '/impressum'
+    | '/reservierungen'
     | '/services'
     | '/sitemap.xml'
     | '/reservierung/$token'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/datenschutz'
     | '/impressum'
+    | '/reservierungen'
     | '/services'
     | '/sitemap.xml'
     | '/reservierung/$token'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DatenschutzRoute: typeof DatenschutzRoute
   ImpressumRoute: typeof ImpressumRoute
+  ReservierungenRoute: typeof ReservierungenRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ReservierungTokenRoute: typeof ReservierungTokenRoute
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reservierungen': {
+      id: '/reservierungen'
+      path: '/reservierungen'
+      fullPath: '/reservierungen'
+      preLoaderRoute: typeof ReservierungenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/impressum': {
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DatenschutzRoute: DatenschutzRoute,
   ImpressumRoute: ImpressumRoute,
+  ReservierungenRoute: ReservierungenRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ReservierungTokenRoute: ReservierungTokenRoute,
