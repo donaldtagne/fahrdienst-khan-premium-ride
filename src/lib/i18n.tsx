@@ -120,6 +120,7 @@ export const translations: Record<Lang, Dict> = {
     "footer.legal": "Rechtliches",
     "footer.impressum": "Impressum",
     "footer.privacy": "Datenschutz",
+    "footer.payment": "Zahlungsarten",
     "footer.rights": "Alle Rechte vorbehalten.",
 
     "page.services.title": "Unsere Leistungen – Fahrdienst Khan Frankenthal",
@@ -241,6 +242,7 @@ export const translations: Record<Lang, Dict> = {
     "footer.legal": "Legal",
     "footer.impressum": "Imprint",
     "footer.privacy": "Privacy",
+    "footer.payment": "Payment methods",
     "footer.rights": "All rights reserved.",
 
     "page.services.title": "Our Services – Fahrdienst Khan Frankenthal",
