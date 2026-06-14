@@ -248,7 +248,7 @@ function Index() {
                 <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">{t("fleet.desc")}</p>
                 <ul className="mt-8 space-y-4">
                   {[
-                    "Mercedes-Benz E-/S-Klasse · Business Vans",
+                    "Toyota RAV4 Hybrid · Premium SUV",
                     "Premium Lederinterieur · Ambientebeleuchtung",
                     "WLAN · Wasser · Tageszeitungen auf Wunsch",
                     "Höchste Hygiene- & Sicherheitsstandards",
