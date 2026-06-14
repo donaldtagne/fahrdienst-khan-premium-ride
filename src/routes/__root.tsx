@@ -127,11 +127,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <I18nProvider>
-        {/* Required: nested routes render here. */}
-        <Outlet />
-        <Toaster position="top-center" />
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <Outlet />
+          <Toaster position="top-center" />
+        </I18nProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }
