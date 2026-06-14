@@ -1,13 +1,15 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, Phone, X } from "lucide-react";
+import { Menu, Moon, Phone, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useI18n, CONTACT } from "@/lib/i18n";
+import { useTheme } from "@/hooks/useTheme";
 
 export function Header() {
   const { t, lang, setLang } = useI18n();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggle } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -27,7 +29,7 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${
         scrolled
-          ? "border-b border-white/10 bg-[oklch(0.08_0.025_260_/_0.75)] backdrop-blur-xl"
+          ? "border-b border-border bg-background/75 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
@@ -55,22 +57,30 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <button
+            onClick={toggle}
+            className="hidden h-9 w-9 items-center justify-center rounded-full glass sm:flex"
+            aria-label="Theme"
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
+
           <div className="hidden items-center rounded-full glass p-0.5 text-xs font-medium sm:flex">
             <button
               onClick={() => setLang("de")}
-              className={`rounded-full px-2.5 py-1 transition ${lang === "de" ? "bg-white text-[oklch(0.10_0.03_260)]" : "text-muted-foreground hover:text-foreground"}`}
+              className={`rounded-full px-2.5 py-1 transition ${lang === "de" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
             >
               DE
             </button>
             <button
               onClick={() => setLang("en")}
-              className={`rounded-full px-2.5 py-1 transition ${lang === "en" ? "bg-white text-[oklch(0.10_0.03_260)]" : "text-muted-foreground hover:text-foreground"}`}
+              className={`rounded-full px-2.5 py-1 transition ${lang === "en" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
             >
               EN
             </button>
           </div>
 
-          <Button asChild size="sm" className="hidden h-10 rounded-full bg-white px-4 text-[oklch(0.10_0.03_260)] hover:bg-white/90 sm:inline-flex">
+          <Button asChild size="sm" className="hidden h-10 rounded-full bg-foreground px-4 text-background hover:bg-foreground/90 sm:inline-flex">
             <a href={`tel:${CONTACT.phoneHref}`}>
               <Phone className="h-4 w-4" />
               {t("cta.call")}
@@ -88,36 +98,36 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-white/10 bg-[oklch(0.08_0.025_260_/_0.95)] backdrop-blur-xl md:hidden">
+        <div className="border-t border-border bg-background/95 backdrop-blur-xl md:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
             {links.map((l) => (
               <Link
                 key={l.to}
                 to={l.to}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 hover:bg-white/5"
-                activeProps={{ className: "bg-white/5 text-foreground" }}
+                className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 hover:bg-foreground/5"
+                activeProps={{ className: "bg-foreground/5 text-foreground" }}
                 activeOptions={{ exact: l.to === "/" }}
               >
                 {l.label}
               </Link>
             ))}
-            <div className="mt-2 flex items-center justify-between gap-2 border-t border-white/10 pt-3">
+            <div className="mt-2 flex items-center justify-between gap-2 border-t border-border pt-3">
               <div className="flex items-center rounded-full glass p-0.5 text-xs">
                 <button
                   onClick={() => setLang("de")}
-                  className={`rounded-full px-3 py-1 ${lang === "de" ? "bg-white text-[oklch(0.10_0.03_260)]" : "text-muted-foreground"}`}
+                  className={`rounded-full px-3 py-1 ${lang === "de" ? "bg-foreground text-background" : "text-muted-foreground"}`}
                 >
                   Deutsch
                 </button>
                 <button
                   onClick={() => setLang("en")}
-                  className={`rounded-full px-3 py-1 ${lang === "en" ? "bg-white text-[oklch(0.10_0.03_260)]" : "text-muted-foreground"}`}
+                  className={`rounded-full px-3 py-1 ${lang === "en" ? "bg-foreground text-background" : "text-muted-foreground"}`}
                 >
                   English
                 </button>
               </div>
-              <Button asChild size="sm" className="rounded-full bg-white text-[oklch(0.10_0.03_260)]">
+              <Button asChild size="sm" className="rounded-full bg-foreground text-background hover:bg-foreground/90">
                 <a href={`tel:${CONTACT.phoneHref}`}>
                   <Phone className="h-4 w-4" /> {t("cta.call")}
                 </a>
