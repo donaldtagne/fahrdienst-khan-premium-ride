@@ -276,7 +276,7 @@ function Index() {
                   <div className="flex items-center gap-1 text-[oklch(0.82_0.12_85)]">
                     {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
                   </div>
-                  <div className="mt-1 text-xs text-muted-foreground">5.0 · Uber Partner</div>
+                  <div className="mt-1 text-xs text-muted-foreground">Ihr lokaler Premium-Fahrdienst in Frankenthal</div>
                 </div>
               </div>
             </Reveal>
