@@ -82,3 +82,42 @@ export const cancelReservation = createServerFn({ method: "POST" })
     if (updErr) throw new Error(updErr.message);
     return { ok: true, alreadyCancelled: false as const };
   });
+
+export const listReservations = createServerFn({ method: "GET" })
+  .inputValidator((d) => z.object({ pin: z.string().trim().min(1) }).parse(d))
+  .handler(async ({ data }) => {
+    if (data.pin !== (process.env.ADMIN_PIN ?? "khan2025")) {
+      throw new Error("Ungültiger PIN");
+    }
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data: rows, error } = await supabaseAdmin
+      .from("reservations")
+      .select("id, name, phone, email, pickup, destination, pickup_at, passengers, notes, status, cancelled_at, created_at, cancellation_token")
+      .order("pickup_at", { ascending: true });
+    if (error) throw new Error(error.message);
+    return rows ?? [];
+  });
+
+export const updateReservationStatus = createServerFn({ method: "POST" })
+  .inputValidator((d) =>
+    z.object({
+      id: z.string().uuid(),
+      status: z.enum(["pending", "confirmed", "cancelled"]),
+      pin: z.string().trim().min(1),
+    }).parse(d)
+  )
+  .handler(async ({ data }) => {
+    if (data.pin !== (process.env.ADMIN_PIN ?? "khan2025")) {
+      throw new Error("Ungültiger PIN");
+    }
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const update: Record<string, unknown> = { status: data.status };
+    if (data.status === "cancelled") update.cancelled_at = new Date().toISOString();
+    else update.cancelled_at = null;
+    const { error } = await supabaseAdmin
+      .from("reservations")
+      .update(update)
+      .eq("id", data.id);
+    if (error) throw new Error(error.message);
+    return { ok: true };
+  });
