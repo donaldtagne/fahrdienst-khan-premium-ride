@@ -111,9 +111,8 @@ export const updateReservationStatus = createServerFn({ method: "POST" })
       throw new Error("Ungültiger PIN");
     }
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const update: Record<string, unknown> = { status: data.status };
+    const update: { status: string; cancelled_at: string | null } = { status: data.status, cancelled_at: null };
     if (data.status === "cancelled") update.cancelled_at = new Date().toISOString();
-    else update.cancelled_at = null;
     const { error } = await supabaseAdmin
       .from("reservations")
       .update(update)
