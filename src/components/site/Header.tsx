@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, Phone, X } from "lucide-react";
+import { Menu, Moon, Phone, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useI18n, CONTACT } from "@/lib/i18n";
+import { useTheme } from "@/hooks/useTheme";
 
 export function Header() {
   const { t, lang, setLang } = useI18n();
