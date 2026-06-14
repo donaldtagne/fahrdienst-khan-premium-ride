@@ -5,12 +5,12 @@ import { useI18n, CONTACT } from "@/lib/i18n";
 export function Footer() {
   const { t } = useI18n();
   return (
-    <footer className="relative border-t border-border bg-muted text-foreground">
+    <footer className="relative border-t border-white/10 bg-[oklch(0.06_0.02_260)] text-foreground">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[oklch(0.82_0.12_85_/_0.5)] to-transparent" />
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div className="lg:col-span-2">
           <div className="flex items-center gap-2">
-            <span className="grid h-10 w-10 place-items-center rounded-md border border-white/15 bg-gradient-to-br from-white/15 to-white/5 font-display text-lg text-gradient-platinum">K</span>
+            <span className="grid h-10 w-10 place-items-center rounded-md border border-white/15 bg-white/5 font-display text-lg text-gradient-platinum">K</span>
             <div className="font-display text-xl text-gradient-platinum">Fahrdienst Khan</div>
           </div>
           <p className="mt-4 max-w-md text-sm text-muted-foreground">{t("footer.tagline")}</p>
@@ -50,7 +50,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-border">
+      <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 py-6 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
           <div className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} Fahrdienst Khan. {t("footer.rights")}
@@ -77,7 +77,7 @@ export function Footer() {
                 <text x="20" y="16" fontFamily="Arial, sans-serif" fontSize="9" fontWeight="bold" fill="#009cde">Pal</text>
               </svg>
               {/* Cash / Bar */}
-              <div className="flex items-center gap-1 rounded bg-foreground/5 px-2 py-1 text-[10px] font-semibold text-foreground/80">
+              <div className="flex items-center gap-1 rounded bg-white/5 px-2 py-1 text-[10px] font-semibold text-foreground/80">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
                 Bar
               </div>
