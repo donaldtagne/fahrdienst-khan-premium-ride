@@ -105,8 +105,8 @@ export function Header() {
                 key={l.to}
                 to={l.to}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 hover:bg-white/5"
-                activeProps={{ className: "bg-white/5 text-foreground" }}
+                className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 hover:bg-foreground/5"
+                activeProps={{ className: "bg-foreground/5 text-foreground" }}
                 activeOptions={{ exact: l.to === "/" }}
               >
                 {l.label}
