@@ -166,6 +166,23 @@ export const translations: Record<Lang, Dict> = {
     "service.corporate.desc":
       "Tailored mobility solutions for companies, conferences and delegations. Framework contracts available on request.",
 
+    "service.howTitle": "How it works",
+    "service.detailsHint": "Click for details",
+    "service.ctaCall": "Call now",
+    "service.ctaWhatsapp": "Ask via WhatsApp",
+    "service.airport.how":
+      "You share your flight number, pickup/drop-off and number of passengers. We track your flight in real time and adjust the pickup time automatically for delays. Meet & greet with name sign at the terminal on request, luggage assistance included. We arrive with a buffer for check-in.",
+    "service.medical.how":
+      "After booking we pick you up on time at your home – also with walker or walking aid. Smooth, anticipatory driving, accompaniment into the practice on request. We wait during the appointment and bring you safely back. Direct billing with your health insurance possible after approval.",
+    "service.courier.how":
+      "You tell us pickup and destination plus the desired time. We collect your document or parcel discreetly, transport it directly – no stops – and hand it over in person to the recipient. Photo proof of delivery and signature available on request.",
+    "service.private.how":
+      "We discuss occasion, route and schedule in advance. Clean premium car, formally dressed driver, water on board. For weddings and events we align with your timeline. Waiting time and multi-stop rides possible, transparent flat price upfront.",
+    "service.business.how":
+      "Single ride or recurring appointments – we take your request via phone, WhatsApp or email. On-time pickup at the office, hotel or train station. Discreet driver, quiet workspace inside the car. Monthly consolidated invoice with VAT.",
+    "service.corporate.how":
+      "We create an individual offer for your company: fixed terms, prioritised availability, multiple vehicles on demand. Dedicated contact, ride logs, monthly reporting overview. Also for conferences, shuttle services and delegations.",
+
     "about.eyebrow": "About Fahrdienst Khan",
     "about.title": "Your local premium chauffeur in Frankenthal",
     "about.p1":
