@@ -174,12 +174,23 @@ function Index() {
 
         {/* MARQUEE / SERVICES INTRO STRIP */}
         <section className="relative border-y border-white/5 bg-[oklch(0.10_0.03_260)] py-6 overflow-hidden">
-          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-12 gap-y-3 px-4 text-[11px] uppercase tracking-[0.28em] text-foreground/50">
-            <span>Airport Transfer</span><span className="text-[oklch(0.82_0.12_85)]">·</span>
-            <span>Business Travel</span><span className="text-[oklch(0.82_0.12_85)]">·</span>
-            <span>Medical Transport</span><span className="text-[oklch(0.82_0.12_85)]">·</span>
-            <span>Private Chauffeur</span><span className="text-[oklch(0.82_0.12_85)]">·</span>
-            <span>Corporate</span>
+          <div className="group flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex shrink-0 animate-[marquee_28s_linear_infinite] items-center gap-x-10 whitespace-nowrap px-5 text-[10px] uppercase tracking-[0.28em] text-foreground/50 sm:text-[11px]">
+              {["Airport Transfer","Business Travel","Medical Transport","Private Chauffeur","Corporate"].concat(["Airport Transfer","Business Travel","Medical Transport","Private Chauffeur","Corporate"]).map((s, idx) => (
+                <span key={idx} className="flex items-center gap-x-10">
+                  <span>{s}</span>
+                  <span className="text-[oklch(0.82_0.12_85)]">·</span>
+                </span>
+              ))}
+            </div>
+            <div aria-hidden className="flex shrink-0 animate-[marquee_28s_linear_infinite] items-center gap-x-10 whitespace-nowrap px-5 text-[10px] uppercase tracking-[0.28em] text-foreground/50 sm:text-[11px]">
+              {["Airport Transfer","Business Travel","Medical Transport","Private Chauffeur","Corporate","Airport Transfer","Business Travel","Medical Transport","Private Chauffeur","Corporate"].map((s, idx) => (
+                <span key={idx} className="flex items-center gap-x-10">
+                  <span>{s}</span>
+                  <span className="text-[oklch(0.82_0.12_85)]">·</span>
+                </span>
+              ))}
+            </div>
           </div>
         </section>
 
