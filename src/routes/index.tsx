@@ -2,9 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Phone, MapPin, Clock, Shield, Star, ChevronRight, ArrowRight, Sparkles } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import heroImg from "@/assets/hero-luxury.jpg";
-import fleetImg from "@/assets/fleet-interior.jpg";
 import aboutImg from "@/assets/about.jpg";
+import rav4Day from "@/assets/rav4-day.jpg.asset.json";
+import rav4Night from "@/assets/rav4-night.jpg.asset.json";
+import rav4Airport from "@/assets/rav4-airport.jpg.asset.json";
+import rav4Cabin from "@/assets/rav4-cabin.jpg.asset.json";
+import rav4Interior from "@/assets/rav4-interior.jpg.asset.json";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Header } from "@/components/site/Header";
@@ -14,6 +17,7 @@ import { BookingForm } from "@/components/site/BookingForm";
 import { ServiceCards } from "@/components/site/Services";
 import { Particles } from "@/components/site/Particles";
 import { CountUp } from "@/components/site/CountUp";
+import { HeroSlideshow } from "@/components/site/HeroSlideshow";
 import { useI18n, CONTACT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
@@ -28,7 +32,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "/" },
-      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
+      { rel: "preload", as: "image", href: rav4Day.url, fetchpriority: "high" },
     ],
     scripts: [
       {
@@ -59,7 +63,6 @@ function Index() {
   const heroRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const imgY = useTransform(scrollYProgress, [0, 1], [0, 180]);
-  const imgScale = useTransform(scrollYProgress, [0, 1], [1.05, 1.2]);
   const textY = useTransform(scrollYProgress, [0, 1], [0, -60]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
@@ -69,8 +72,8 @@ function Index() {
       <main className="flex-1">
         {/* HERO — cinematic */}
         <section ref={heroRef} className="relative min-h-screen w-full overflow-hidden">
-          <motion.div style={{ y: imgY, scale: imgScale }} className="absolute inset-0 will-change-transform">
-            <img src={heroImg} alt="Luxury chauffeur car Frankenthal" className="h-full w-full object-cover" width={1920} height={1080} fetchPriority="high" />
+          <motion.div style={{ y: imgY }} className="absolute inset-0 will-change-transform">
+            <HeroSlideshow images={[rav4Day.url, rav4Night.url, rav4Airport.url, rav4Cabin.url]} />
           </motion.div>
           {/* gradients */}
           <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.08_0.025_260_/_0.35)] via-[oklch(0.08_0.025_260_/_0.55)] to-[oklch(0.08_0.025_260)]" />
@@ -228,8 +231,8 @@ function Index() {
               <div className="relative">
                 <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-[oklch(0.6_0.18_255_/_0.3)] to-transparent blur-2xl" />
                 <img
-                  src={fleetImg}
-                  alt="Luxury sedan interior"
+                  src={rav4Interior.url}
+                  alt="Toyota RAV4 Innenraum mit Ambientebeleuchtung"
                   width={1280}
                   height={1280}
                   loading="lazy"
