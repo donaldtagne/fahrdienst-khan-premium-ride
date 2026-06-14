@@ -57,22 +57,30 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <button
+            onClick={toggle}
+            className="hidden h-9 w-9 items-center justify-center rounded-full glass sm:flex"
+            aria-label="Theme"
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
+
           <div className="hidden items-center rounded-full glass p-0.5 text-xs font-medium sm:flex">
             <button
               onClick={() => setLang("de")}
-              className={`rounded-full px-2.5 py-1 transition ${lang === "de" ? "bg-white text-[oklch(0.10_0.03_260)]" : "text-muted-foreground hover:text-foreground"}`}
+              className={`rounded-full px-2.5 py-1 transition ${lang === "de" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
             >
               DE
             </button>
             <button
               onClick={() => setLang("en")}
-              className={`rounded-full px-2.5 py-1 transition ${lang === "en" ? "bg-white text-[oklch(0.10_0.03_260)]" : "text-muted-foreground hover:text-foreground"}`}
+              className={`rounded-full px-2.5 py-1 transition ${lang === "en" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
             >
               EN
             </button>
           </div>
 
-          <Button asChild size="sm" className="hidden h-10 rounded-full bg-white px-4 text-[oklch(0.10_0.03_260)] hover:bg-white/90 sm:inline-flex">
+          <Button asChild size="sm" className="hidden h-10 rounded-full bg-foreground px-4 text-background hover:bg-foreground/90 sm:inline-flex">
             <a href={`tel:${CONTACT.phoneHref}`}>
               <Phone className="h-4 w-4" />
               {t("cta.call")}
