@@ -127,7 +127,7 @@ function Index() {
                     {t("nav.book")} <ArrowRight className="h-4 w-4" />
                   </a>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="h-13 rounded-full border-white/25 bg-white/5 px-7 text-foreground backdrop-blur hover:bg-white/10">
+                <Button asChild size="lg" variant="outline" className="attention-pulse h-13 rounded-full border-white/25 bg-white/5 px-7 text-foreground backdrop-blur hover:bg-white/10">
                   <a href={`tel:${CONTACT.phoneHref}`}>
                     <Phone className="h-4 w-4" /> {t("cta.call")}
                   </a>
@@ -367,7 +367,7 @@ function Index() {
                   {t("hero.subtitle")}
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <Button asChild size="lg" className="h-12 rounded-full bg-white px-6 text-[oklch(0.10_0.03_260)] hover:bg-white/90">
+                  <Button asChild size="lg" className="attention-pulse h-12 rounded-full bg-white px-6 text-[oklch(0.10_0.03_260)] hover:bg-white/90">
                     <a href={`tel:${CONTACT.phoneHref}`}><Phone className="h-4 w-4" /> {CONTACT.phone}</a>
                   </Button>
                   <Button asChild size="lg" className="h-12 rounded-full bg-[#25D366] px-6 text-white hover:bg-[#1DA851]">
@@ -414,7 +414,7 @@ function Index() {
             </Reveal>
             <p className="max-w-xl text-foreground/70">{CONTACT.address}</p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Button asChild size="lg" className="h-13 rounded-full bg-white px-7 text-[oklch(0.10_0.03_260)] hover:bg-white/90">
+              <Button asChild size="lg" className="attention-pulse h-13 rounded-full bg-white px-7 text-[oklch(0.10_0.03_260)] hover:bg-white/90">
                 <a href={`tel:${CONTACT.phoneHref}`}><Phone className="h-5 w-5" /> {CONTACT.phone}</a>
               </Button>
               <Button asChild size="lg" className="h-13 rounded-full bg-[#25D366] px-7 text-white hover:bg-[#1DA851]">

@@ -237,6 +237,21 @@
   50% { opacity: 0.9; }
 }
 
+@keyframes attention-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 oklch(0.82 0.12 85 / 0.45), 0 0 20px -5px oklch(0.82 0.12 85 / 0.25);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 8px oklch(0.82 0.12 85 / 0), 0 0 40px -5px oklch(0.82 0.12 85 / 0.45);
+    transform: scale(1.03);
+  }
+}
+
 @utility animate-float-up {
   animation: float-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility attention-pulse {
+  animation: attention-pulse 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
