@@ -17,13 +17,6 @@ export const translations: Record<Lang, Dict> = {
 
     "hero.eyebrow": "Premium Fahrdienst · Frankenthal",
     "hero.title": "Mit uns entspannt von A nach B",
-    "hero.line1": "Mit uns",
-    "hero.line2": "entspannt",
-    "hero.line3": "von",
-    "hero.line4": "A nach B",
-    "hero.metaAvailability": "Verfügbarkeit",
-    "hero.metaSecurity": "Sicherheit",
-    "hero.metaPrice": "Festpreis",
     "hero.subtitle":
       "Zuverlässig, pünktlich und diskret. Ihr persönlicher Chauffeur in Frankenthal und der gesamten Metropolregion Rhein-Neckar.",
     "hero.trust1": "24/7 verfügbar",
@@ -116,13 +109,6 @@ export const translations: Record<Lang, Dict> = {
 
     "hero.eyebrow": "Premium Chauffeur · Frankenthal",
     "hero.title": "Travel comfortably from A to B",
-    "hero.line1": "Travel",
-    "hero.line2": "comfortably",
-    "hero.line3": "from",
-    "hero.line4": "A to B",
-    "hero.metaAvailability": "Availability",
-    "hero.metaSecurity": "Safety",
-    "hero.metaPrice": "Fixed price",
     "hero.subtitle":
       "Reliable, punctual and discreet. Your personal chauffeur in Frankenthal and the entire Rhine-Neckar metropolitan region.",
     "hero.trust1": "Available 24/7",
