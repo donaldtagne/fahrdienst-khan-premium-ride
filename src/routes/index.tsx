@@ -8,7 +8,7 @@ import rav4Night from "@/assets/rav4-night.jpg.asset.json";
 import rav4Airport from "@/assets/rav4-airport.jpg.asset.json";
 import rav4Cabin from "@/assets/rav4-cabin.jpg.asset.json";
 import rav4Interior from "@/assets/rav4-interior.jpg.asset.json";
-import rav4LuxuryCabin from "@/assets/rav4-limo-cabin.jpg.asset.json";
+
 import rav4FrontSeats from "@/assets/rav4-front-seats.jpg.asset.json";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -75,7 +75,7 @@ function Index() {
         {/* HERO — cinematic */}
         <section ref={heroRef} className="relative min-h-screen w-full overflow-hidden">
           <motion.div style={{ y: imgY }} className="absolute inset-0 will-change-transform">
-            <HeroSlideshow images={[rav4Day.url, rav4Night.url, rav4Airport.url, rav4LuxuryCabin.url]} />
+            <HeroSlideshow images={[rav4Day.url, rav4Night.url, rav4Airport.url]} />
           </motion.div>
           {/* gradients — softer so passengers/faces stay visible */}
           <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.08_0.025_260_/_0.15)] via-[oklch(0.08_0.025_260_/_0.35)] to-[oklch(0.08_0.025_260_/_0.92)]" />
