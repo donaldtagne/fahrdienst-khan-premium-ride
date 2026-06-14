@@ -98,7 +98,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-white/10 bg-[oklch(0.08_0.025_260_/_0.95)] backdrop-blur-xl md:hidden">
+        <div className="border-t border-border bg-background/95 backdrop-blur-xl md:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
             {links.map((l) => (
               <Link
