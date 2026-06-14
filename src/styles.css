@@ -63,6 +63,7 @@
 
 :root {
   --radius: 0.5rem;
+  color-scheme: dark;
   /* Dark luxury chauffeur palette: midnight blue, silver, platinum */
   --background: oklch(0.13 0.035 260);
   --foreground: oklch(0.97 0.005 250);

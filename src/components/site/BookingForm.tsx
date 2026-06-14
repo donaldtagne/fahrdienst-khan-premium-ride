@@ -51,10 +51,10 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
       </div>
       {!compact && (
         <div>
-          <Label htmlFor="notes" className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-muted-foreground">
+          <Label htmlFor="notes" className="mb-1.5 block text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
             {t("booking.notes")}
           </Label>
-          <Textarea id="notes" name="notes" rows={3} maxLength={500} />
+          <Textarea id="notes" name="notes" rows={3} maxLength={500} className="rounded-lg border-white/10 bg-white/5 text-foreground focus-visible:border-white/30 focus-visible:ring-white/20" />
         </div>
       )}
       <Button
