@@ -8,7 +8,7 @@ import rav4Night from "@/assets/rav4-night.jpg.asset.json";
 import rav4Airport from "@/assets/rav4-airport.jpg.asset.json";
 import rav4Cabin from "@/assets/rav4-cabin.jpg.asset.json";
 import rav4Interior from "@/assets/rav4-interior.jpg.asset.json";
-import rav4LuxuryCabin from "@/assets/rav4-luxury-cabin.jpg.asset.json";
+import rav4LuxuryCabin from "@/assets/rav4-limo-cabin.jpg.asset.json";
 import rav4FrontSeats from "@/assets/rav4-front-seats.jpg.asset.json";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
