@@ -14,7 +14,57 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      reservations: {
+        Row: {
+          cancellation_token: string
+          cancelled_at: string | null
+          created_at: string
+          destination: string
+          email: string | null
+          id: string
+          name: string
+          notes: string | null
+          passengers: number
+          phone: string
+          pickup: string
+          pickup_at: string
+          status: Database["public"]["Enums"]["reservation_status"]
+          updated_at: string
+        }
+        Insert: {
+          cancellation_token?: string
+          cancelled_at?: string | null
+          created_at?: string
+          destination: string
+          email?: string | null
+          id?: string
+          name: string
+          notes?: string | null
+          passengers?: number
+          phone: string
+          pickup: string
+          pickup_at: string
+          status?: Database["public"]["Enums"]["reservation_status"]
+          updated_at?: string
+        }
+        Update: {
+          cancellation_token?: string
+          cancelled_at?: string | null
+          created_at?: string
+          destination?: string
+          email?: string | null
+          id?: string
+          name?: string
+          notes?: string | null
+          passengers?: number
+          phone?: string
+          pickup?: string
+          pickup_at?: string
+          status?: Database["public"]["Enums"]["reservation_status"]
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +73,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      reservation_status: "pending" | "confirmed" | "cancelled"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +200,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      reservation_status: ["pending", "confirmed", "cancelled"],
+    },
   },
 } as const
