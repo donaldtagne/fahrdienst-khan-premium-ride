@@ -112,22 +112,22 @@ export function Header() {
                 {l.label}
               </Link>
             ))}
-            <div className="mt-2 flex items-center justify-between gap-2 border-t border-white/10 pt-3">
+            <div className="mt-2 flex items-center justify-between gap-2 border-t border-border pt-3">
               <div className="flex items-center rounded-full glass p-0.5 text-xs">
                 <button
                   onClick={() => setLang("de")}
-                  className={`rounded-full px-3 py-1 ${lang === "de" ? "bg-white text-[oklch(0.10_0.03_260)]" : "text-muted-foreground"}`}
+                  className={`rounded-full px-3 py-1 ${lang === "de" ? "bg-foreground text-background" : "text-muted-foreground"}`}
                 >
                   Deutsch
                 </button>
                 <button
                   onClick={() => setLang("en")}
-                  className={`rounded-full px-3 py-1 ${lang === "en" ? "bg-white text-[oklch(0.10_0.03_260)]" : "text-muted-foreground"}`}
+                  className={`rounded-full px-3 py-1 ${lang === "en" ? "bg-foreground text-background" : "text-muted-foreground"}`}
                 >
                   English
                 </button>
               </div>
-              <Button asChild size="sm" className="rounded-full bg-white text-[oklch(0.10_0.03_260)]">
+              <Button asChild size="sm" className="rounded-full bg-foreground text-background hover:bg-foreground/90">
                 <a href={`tel:${CONTACT.phoneHref}`}>
                   <Phone className="h-4 w-4" /> {t("cta.call")}
                 </a>
