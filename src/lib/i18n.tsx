@@ -45,6 +45,23 @@ export const translations: Record<Lang, Dict> = {
     "service.corporate.desc":
       "Maßgeschneiderte Mobilitätslösungen für Unternehmen, Konferenzen und Delegationen. Auf Wunsch mit Rahmenvertrag.",
 
+    "service.howTitle": "So läuft das ab",
+    "service.detailsHint": "Klicken für Details",
+    "service.ctaCall": "Jetzt anrufen",
+    "service.ctaWhatsapp": "Per WhatsApp anfragen",
+    "service.airport.how":
+      "Sie nennen uns Flugnummer, Abflug-/Ankunftsort und Personenanzahl. Wir überwachen Ihren Flug in Echtzeit und passen die Abholzeit automatisch an Verspätungen an. Empfang mit Namensschild am Terminal möglich, Hilfe beim Gepäck inklusive. Pünktliche Ankunft mit Zeitpuffer für Check-in.",
+    "service.medical.how":
+      "Nach Ihrer Buchung holen wir Sie pünktlich zu Hause ab – auch mit Rollator oder Gehhilfe. Ruhige, vorausschauende Fahrweise, Begleitung bis in die Praxis auf Wunsch. Wir warten während des Termins und bringen Sie sicher zurück. Abrechnung direkt mit der Krankenkasse nach Genehmigung möglich.",
+    "service.courier.how":
+      "Sie melden uns Abhol- und Zielort sowie gewünschte Zeit. Wir holen das Dokument oder Paket diskret ab, transportieren es direkt – ohne Zwischenstopp – und übergeben es persönlich beim Empfänger. Auf Wunsch mit Foto-Nachweis der Übergabe und Unterschrift.",
+    "service.private.how":
+      "Wir besprechen Anlass, Strecke und Zeitplan im Voraus. Saubere Limousine, formell gekleideter Fahrer, Wasser an Bord. Für Hochzeiten und Events koordinieren wir uns mit Ihrem Ablaufplan. Warte- und Mehrfachfahrten möglich, transparenter Festpreis vorab.",
+    "service.business.how":
+      "Einmalige Fahrt oder regelmäßige Termine – wir nehmen Ihre Anfrage per Telefon, WhatsApp oder E-Mail entgegen. Pünktliche Abholung am Büro, Hotel oder Bahnhof. Diskreter Fahrer, ruhiges Arbeiten im Fahrzeug möglich. Monatliche Sammelrechnung mit ausgewiesener MwSt.",
+    "service.corporate.how":
+      "Wir erstellen ein individuelles Angebot für Ihr Unternehmen: feste Konditionen, priorisierte Verfügbarkeit, mehrere Fahrzeuge bei Bedarf. Eigener Ansprechpartner, Fahrtenbuch, monatliche Reporting-Übersicht. Auch für Konferenzen, Shuttle-Dienste und Delegationen.",
+
     "about.eyebrow": "Über Fahrdienst Khan",
     "about.title": "Ihr lokaler Premium-Fahrdienst in Frankenthal",
     "about.p1":
