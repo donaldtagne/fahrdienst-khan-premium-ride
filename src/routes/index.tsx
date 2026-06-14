@@ -74,7 +74,7 @@ function Index() {
       <Header />
       <main className="flex-1">
         {/* HERO — cinematic */}
-        <section ref={heroRef} className="relative min-h-screen w-full overflow-hidden">
+        <section ref={heroRef} className="relative min-h-[65vh] sm:min-h-[75vh] md:min-h-screen w-full overflow-hidden">
           <motion.div style={{ y: imgY }} className="absolute inset-0 will-change-transform">
             <HeroSlideshow images={[rav4Day.url, rav4Night.url, rav4Airport.url, rav4ServiceNight.url]} />
           </motion.div>
