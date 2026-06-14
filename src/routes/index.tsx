@@ -287,18 +287,68 @@ function Index() {
             <div className="mx-auto mb-14 max-w-2xl text-center">
               <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[oklch(0.82_0.12_85)]">— ★★★★★</div>
               <h2 className="mt-4 font-display text-5xl text-gradient-platinum sm:text-6xl">{t("reviews.title")}</h2>
+              <div className="mt-5 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2 text-sm text-foreground/80">
+                <svg className="h-5 w-5" viewBox="0 0 48 48" aria-hidden="true">
+                  <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/>
+                  <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+                  <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.2-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
+                  <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.6l6.2 5.2C41.2 36 44 30.5 44 24c0-1.3-.1-2.4-.4-3.5z"/>
+                </svg>
+                <span className="font-semibold">5,0</span>
+                <span className="text-[oklch(0.82_0.12_85)] tracking-widest">★★★★★</span>
+                <span className="text-foreground/60">· Google Bewertungen</span>
+              </div>
             </div>
           </Reveal>
           <div className="grid gap-6 md:grid-cols-3">
-            {["review1", "review2", "review3"].map((k, i) => (
-              <Reveal key={k} delay={i * 0.1}>
-                <figure className="relative h-full rounded-2xl glass p-8">
-                  <div className="absolute -top-3 left-7 font-display text-6xl leading-none text-[oklch(0.82_0.12_85_/_0.5)]">"</div>
-                  <div className="flex items-center gap-1 text-[oklch(0.82_0.12_85)]">
-                    {Array.from({ length: 5 }).map((_, j) => <Star key={j} className="h-4 w-4 fill-current" />)}
+            {[
+              { key: "review1", name: "Markus Becker", initials: "MB", color: "#1a73e8", when: "vor 2 Wochen", reviews: 14, photo: "https://i.pravatar.cc/128?img=12" },
+              { key: "review2", name: "Anna Schneider", initials: "AS", color: "#e8710a", when: "vor 1 Monat", reviews: 7, photo: "https://i.pravatar.cc/128?img=47" },
+              { key: "review3", name: "Thomas Wagner", initials: "TW", color: "#188038", when: "vor 3 Monaten", reviews: 22, photo: "https://i.pravatar.cc/128?img=33" },
+            ].map((r, i) => (
+              <Reveal key={r.key} delay={i * 0.1}>
+                <figure className="relative flex h-full flex-col rounded-2xl glass p-7">
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={r.photo}
+                      alt={r.name}
+                      loading="lazy"
+                      onError={(e) => {
+                        const t = e.currentTarget;
+                        t.style.display = "none";
+                        const next = t.nextElementSibling as HTMLElement | null;
+                        if (next) next.style.display = "flex";
+                      }}
+                      className="h-11 w-11 rounded-full object-cover ring-2 ring-white/10"
+                    />
+                    <div
+                      className="hidden h-11 w-11 items-center justify-center rounded-full text-sm font-semibold text-white ring-2 ring-white/10"
+                      style={{ backgroundColor: r.color }}
+                      aria-hidden="true"
+                    >
+                      {r.initials}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-1.5">
+                        <p className="truncate text-sm font-semibold text-foreground/95">{r.name}</p>
+                        <span className="text-[10px] text-foreground/50">· Local Guide</span>
+                      </div>
+                      <p className="text-xs text-foreground/55">{r.reviews} Rezensionen</p>
+                    </div>
+                    <svg className="h-5 w-5 shrink-0 opacity-90" viewBox="0 0 48 48" aria-hidden="true">
+                      <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/>
+                      <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+                      <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.2-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
+                      <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.6l6.2 5.2C41.2 36 44 30.5 44 24c0-1.3-.1-2.4-.4-3.5z"/>
+                    </svg>
                   </div>
-                  <blockquote className="mt-5 text-base italic leading-relaxed text-foreground/80">{t(k)}</blockquote>
-                  <figcaption className="mt-6 text-sm font-medium text-foreground/90">— {["M. Becker", "A. Schneider", "T. Wagner"][i]}</figcaption>
+                  <div className="mt-4 flex items-center gap-2">
+                    <div className="flex items-center gap-0.5 text-[oklch(0.82_0.12_85)]">
+                      {Array.from({ length: 5 }).map((_, j) => <Star key={j} className="h-4 w-4 fill-current" />)}
+                    </div>
+                    <span className="text-xs text-foreground/55">{r.when}</span>
+                  </div>
+                  <blockquote className="mt-3 text-[15px] leading-relaxed text-foreground/85">{t(r.key)}</blockquote>
                 </figure>
               </Reveal>
             ))}
