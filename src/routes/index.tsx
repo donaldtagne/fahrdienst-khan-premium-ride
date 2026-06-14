@@ -77,11 +77,11 @@ function Index() {
           <motion.div style={{ y: imgY }} className="absolute inset-0 will-change-transform">
             <HeroSlideshow images={[rav4Day.url, rav4Night.url, rav4Airport.url, rav4LuxuryCabin.url]} />
           </motion.div>
-          {/* gradients */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.08_0.025_260_/_0.35)] via-[oklch(0.08_0.025_260_/_0.55)] to-[oklch(0.08_0.025_260)]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.08_0.025_260_/_0.85)] via-transparent to-transparent" />
+          {/* gradients — softer so passengers/faces stay visible */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.08_0.025_260_/_0.15)] via-[oklch(0.08_0.025_260_/_0.35)] to-[oklch(0.08_0.025_260_/_0.92)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.08_0.025_260_/_0.7)] via-transparent to-transparent" />
           {/* vignette */}
-          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 30%, oklch(0.05 0.02 260 / 0.7) 100%)" }} />
+          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 45%, oklch(0.05 0.02 260 / 0.45) 100%)" }} />
           {/* ambient particles */}
           <Particles density={70} />
 
