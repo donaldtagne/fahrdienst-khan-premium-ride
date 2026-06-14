@@ -16,12 +16,13 @@ export const translations: Record<Lang, Dict> = {
     "cta.book": "Fahrt anfragen",
 
     "hero.eyebrow": "Premium Fahrdienst · Frankenthal",
-    "hero.title": "Mit uns entspannt von A nach B",
+    "hero.title": "Premium Fahrservice für höchste Ansprüche",
     "hero.subtitle":
-      "Zuverlässig, pünktlich und diskret. Ihr persönlicher Chauffeur in Frankenthal und der gesamten Metropolregion Rhein-Neckar.",
+      "Flughafentransfer · Business Travel · Krankenfahrten · Privater Chauffeurdienst. Diskret, pünktlich und kompromisslos exklusiv in Frankenthal und Rhein-Neckar.",
     "hero.trust1": "24/7 verfügbar",
     "hero.trust2": "Festpreisgarantie",
     "hero.trust3": "Uber Partner",
+    "hero.scroll": "Entdecken",
 
     "services.title": "Unsere Leistungen",
     "services.subtitle": "Maßgeschneiderte Mobilität für jeden Anlass",
@@ -40,6 +41,9 @@ export const translations: Record<Lang, Dict> = {
     "service.business.title": "Firmenfahrten",
     "service.business.desc":
       "Repräsentative Geschäftsfahrten für Sie und Ihre Gäste. Rechnungsstellung möglich.",
+    "service.corporate.title": "Corporate Transport",
+    "service.corporate.desc":
+      "Maßgeschneiderte Mobilitätslösungen für Unternehmen, Konferenzen und Delegationen. Auf Wunsch mit Rahmenvertrag.",
 
     "about.eyebrow": "Über Fahrdienst Khan",
     "about.title": "Ihr lokaler Premium-Fahrdienst in Frankenthal",
@@ -50,6 +54,14 @@ export const translations: Record<Lang, Dict> = {
     "about.stat1": "Jahre Erfahrung",
     "about.stat2": "Zufriedene Kunden",
     "about.stat3": "Tage erreichbar",
+    "about.stat4": "Erfolgreiche Fahrten",
+
+    "why.title": "Warum Fahrdienst Khan",
+    "why.subtitle": "Eine Klasse für sich",
+
+    "fleet.title": "Unsere Flotte",
+    "fleet.subtitle": "Diskret. Komfortabel. Repräsentativ.",
+    "fleet.desc": "Sorgfältig gepflegte Premium-Fahrzeuge mit hochwertigem Lederinterieur, Klimatisierung und Ambientebeleuchtung – für ein Reiseerlebnis auf Top-Niveau.",
 
     "booking.title": "Schnelle Fahrtanfrage",
     "booking.subtitle": "Innerhalb weniger Minuten erhalten Sie ein Angebot",
@@ -108,12 +120,13 @@ export const translations: Record<Lang, Dict> = {
     "cta.book": "Request ride",
 
     "hero.eyebrow": "Premium Chauffeur · Frankenthal",
-    "hero.title": "Travel comfortably from A to B",
+    "hero.title": "Premium Transportation Beyond Expectations",
     "hero.subtitle":
-      "Reliable, punctual and discreet. Your personal chauffeur in Frankenthal and the entire Rhine-Neckar metropolitan region.",
+      "Airport Transfers · Business Travel · Medical Transport · Private Chauffeur Service. Discreet, punctual and uncompromisingly exclusive across Frankenthal and Rhine-Neckar.",
     "hero.trust1": "Available 24/7",
     "hero.trust2": "Fixed price guarantee",
     "hero.trust3": "Uber Partner",
+    "hero.scroll": "Explore",
 
     "services.title": "Our Services",
     "services.subtitle": "Tailored mobility for every occasion",
@@ -132,6 +145,9 @@ export const translations: Record<Lang, Dict> = {
     "service.business.title": "Business Transport",
     "service.business.desc":
       "Representative business rides for you and your guests. Invoicing available.",
+    "service.corporate.title": "Corporate Transportation",
+    "service.corporate.desc":
+      "Tailored mobility solutions for companies, conferences and delegations. Framework contracts available on request.",
 
     "about.eyebrow": "About Fahrdienst Khan",
     "about.title": "Your local premium chauffeur in Frankenthal",
@@ -142,6 +158,14 @@ export const translations: Record<Lang, Dict> = {
     "about.stat1": "Years of experience",
     "about.stat2": "Satisfied customers",
     "about.stat3": "Days available",
+    "about.stat4": "Successful trips",
+
+    "why.title": "Why Fahrdienst Khan",
+    "why.subtitle": "In a class of its own",
+
+    "fleet.title": "Our Fleet",
+    "fleet.subtitle": "Discreet. Comfortable. Representative.",
+    "fleet.desc": "Carefully maintained premium vehicles with high-end leather interior, climate control and ambient lighting – for a top-tier travel experience.",
 
     "booking.title": "Fast booking request",
     "booking.subtitle": "Receive a quote within minutes",

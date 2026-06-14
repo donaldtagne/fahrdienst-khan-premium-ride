@@ -46,13 +46,13 @@ function ContactPage() {
       <section className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8">
         <div className="space-y-6">
           <InfoCard icon={Phone} label={t("contact.phone")}>
-            <a href={`tel:${CONTACT.phoneHref}`} className="text-lg font-medium text-navy hover:underline">{CONTACT.phone}</a>
+            <a href={`tel:${CONTACT.phoneHref}`} className="text-lg font-medium text-foreground hover:underline">{CONTACT.phone}</a>
           </InfoCard>
           <InfoCard icon={MapPin} label={t("contact.address")}>
             <p className="text-foreground/80">{CONTACT.address}</p>
           </InfoCard>
           <InfoCard icon={Mail} label="Email">
-            <a href={`mailto:${CONTACT.email}`} className="text-navy hover:underline">{CONTACT.email}</a>
+            <a href={`mailto:${CONTACT.email}`} className="text-foreground hover:underline">{CONTACT.email}</a>
           </InfoCard>
 
           <div className="overflow-hidden rounded-xl border border-border">
@@ -66,7 +66,7 @@ function ContactPage() {
         </div>
 
         <div className="rounded-2xl border border-border bg-card p-7 sm:p-8" style={{ boxShadow: "var(--shadow-card)" }}>
-          <h2 className="font-display text-2xl text-navy">{t("contact.write")}</h2>
+          <h2 className="font-display text-2xl text-foreground">{t("contact.write")}</h2>
           <form onSubmit={onSubmit} className="mt-6 space-y-4">
             <div>
               <Label htmlFor="name" className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-muted-foreground">{t("booking.name")}</Label>
@@ -80,7 +80,7 @@ function ContactPage() {
               <Label htmlFor="message" className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-muted-foreground">{t("contact.message")}</Label>
               <Textarea id="message" name="message" rows={5} required maxLength={1000} />
             </div>
-            <Button type="submit" disabled={sending} className="w-full h-12 bg-navy text-primary-foreground hover:bg-navy-deep">
+            <Button type="submit" disabled={sending} className="w-full h-12 bg-white text-[oklch(0.10_0.03_260)] hover:bg-[oklch(0.06_0.02_260)]">
               <Send className="h-4 w-4" /> {t("contact.send")}
             </Button>
           </form>
@@ -93,7 +93,7 @@ function ContactPage() {
 function InfoCard({ icon: Icon, label, children }: { icon: React.ComponentType<{ className?: string }>; label: string; children: React.ReactNode }) {
   return (
     <div className="flex gap-4 rounded-xl border border-border bg-card p-5" style={{ boxShadow: "var(--shadow-card)" }}>
-      <div className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-navy text-primary-foreground">
+      <div className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-white text-[oklch(0.10_0.03_260)]">
         <Icon className="h-5 w-5" />
       </div>
       <div className="min-w-0">

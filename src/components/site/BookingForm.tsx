@@ -51,16 +51,16 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
       </div>
       {!compact && (
         <div>
-          <Label htmlFor="notes" className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-muted-foreground">
+          <Label htmlFor="notes" className="mb-1.5 block text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
             {t("booking.notes")}
           </Label>
-          <Textarea id="notes" name="notes" rows={3} maxLength={500} />
+          <Textarea id="notes" name="notes" rows={3} maxLength={500} className="rounded-lg border-white/10 bg-white/5 text-foreground focus-visible:border-white/30 focus-visible:ring-white/20" />
         </div>
       )}
       <Button
         type="submit"
         disabled={submitting}
-        className="w-full bg-navy text-primary-foreground hover:bg-navy-deep h-12 text-base"
+        className="w-full h-12 rounded-full bg-white text-[oklch(0.10_0.03_260)] hover:bg-white/90 text-base font-medium"
       >
         <Send className="h-4 w-4" />
         {t("booking.submit")}
@@ -74,10 +74,10 @@ function Field({
 }: { label: string; name: string; type?: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div>
-      <Label htmlFor={name} className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-muted-foreground">
+      <Label htmlFor={name} className="mb-1.5 block text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
         {label}
       </Label>
-      <Input id={name} name={name} type={type} {...rest} />
+      <Input id={name} name={name} type={type} className="h-11 rounded-lg border-white/10 bg-white/5 text-foreground placeholder:text-muted-foreground/60 focus-visible:border-white/30 focus-visible:ring-white/20" {...rest} />
     </div>
   );
 }

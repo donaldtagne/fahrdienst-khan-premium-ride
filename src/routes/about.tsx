@@ -33,7 +33,7 @@ function AboutPage() {
               { v: "365", l: t("about.stat3") },
             ].map((s, i) => (
               <div key={i}>
-                <div className="font-display text-3xl text-navy">{s.v}</div>
+                <div className="font-display text-3xl text-foreground">{s.v}</div>
                 <div className="mt-1 text-xs text-muted-foreground">{s.l}</div>
               </div>
             ))}
