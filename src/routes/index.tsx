@@ -8,6 +8,8 @@ import rav4Night from "@/assets/rav4-night.jpg.asset.json";
 import rav4Airport from "@/assets/rav4-airport.jpg.asset.json";
 import rav4Cabin from "@/assets/rav4-cabin.jpg.asset.json";
 import rav4Interior from "@/assets/rav4-interior.jpg.asset.json";
+import rav4LuxuryCabin from "@/assets/rav4-luxury-cabin.jpg.asset.json";
+import rav4FrontSeats from "@/assets/rav4-front-seats.jpg.asset.json";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Header } from "@/components/site/Header";
@@ -73,7 +75,7 @@ function Index() {
         {/* HERO — cinematic */}
         <section ref={heroRef} className="relative min-h-screen w-full overflow-hidden">
           <motion.div style={{ y: imgY }} className="absolute inset-0 will-change-transform">
-            <HeroSlideshow images={[rav4Day.url, rav4Night.url, rav4Airport.url, rav4Cabin.url]} />
+            <HeroSlideshow images={[rav4Day.url, rav4Night.url, rav4Airport.url, rav4LuxuryCabin.url]} />
           </motion.div>
           {/* gradients */}
           <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.08_0.025_260_/_0.35)] via-[oklch(0.08_0.025_260_/_0.55)] to-[oklch(0.08_0.025_260)]" />
@@ -231,8 +233,8 @@ function Index() {
               <div className="relative">
                 <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-[oklch(0.6_0.18_255_/_0.3)] to-transparent blur-2xl" />
                 <img
-                  src={rav4Interior.url}
-                  alt="Toyota RAV4 Innenraum mit Ambientebeleuchtung"
+                  src={rav4FrontSeats.url}
+                  alt="Toyota RAV4 Vorderer Innenraum"
                   width={1280}
                   height={1280}
                   loading="lazy"
