@@ -1,11 +1,6 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { useI18n, CONTACT } from "@/lib/i18n";
-import { Send } from "lucide-react";
 
 export function BookingForm({ compact = false }: { compact?: boolean }) {
   const { t, lang } = useI18n();
@@ -35,36 +30,30 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
   };
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4">
-      <div className="grid gap-4 sm:grid-cols-2">
-        <Field label={t("booking.pickup")} name="pickup" required placeholder="Frankenthal, ..." />
-        <Field label={t("booking.destination")} name="destination" required placeholder="Flughafen Frankfurt" />
+    <form onSubmit={onSubmit} className="space-y-7">
+      <div className="grid gap-7 sm:grid-cols-2">
+        <Field label={t("booking.pickup")} name="pickup" required placeholder="Frankenthal …" />
+        <Field label={t("booking.destination")} name="destination" required placeholder="Flughafen Frankfurt …" />
       </div>
-      <div className="grid gap-4 sm:grid-cols-3">
+      <div className="grid gap-7 sm:grid-cols-3">
         <Field label={t("booking.date")} name="date" type="date" required />
         <Field label={t("booking.time")} name="time" type="time" required />
         <Field label={t("booking.passengers")} name="passengers" type="number" min="1" max="8" defaultValue="1" required />
       </div>
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-7 sm:grid-cols-2">
         <Field label={t("booking.name")} name="name" required maxLength={100} />
         <Field label={t("booking.phone")} name="phone" type="tel" required maxLength={30} />
       </div>
       {!compact && (
-        <div>
-          <Label htmlFor="notes" className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            {t("booking.notes")}
-          </Label>
-          <Textarea id="notes" name="notes" rows={3} maxLength={500} />
-        </div>
+        <Field label={t("booking.notes")} name="notes" />
       )}
-      <Button
+      <button
         type="submit"
         disabled={submitting}
-        className="w-full bg-navy text-primary-foreground hover:bg-navy-deep h-12 text-base"
+        className="w-full bg-white py-5 text-[11px] font-bold uppercase tracking-[0.4em] text-black transition-all hover:bg-white/85 disabled:opacity-60"
       >
-        <Send className="h-4 w-4" />
         {t("booking.submit")}
-      </Button>
+      </button>
     </form>
   );
 }
@@ -73,11 +62,20 @@ function Field({
   label, name, type = "text", ...rest
 }: { label: string; name: string; type?: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
-    <div>
-      <Label htmlFor={name} className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-muted-foreground">
+    <div className="group">
+      <label
+        htmlFor={name}
+        className="block text-[9px] font-medium uppercase tracking-[0.3em] text-white/45 transition-colors group-focus-within:text-white"
+      >
         {label}
-      </Label>
-      <Input id={name} name={name} type={type} {...rest} />
+      </label>
+      <input
+        id={name}
+        name={name}
+        type={type}
+        {...rest}
+        className="mt-2 w-full border-b border-white/15 bg-transparent py-2 text-sm text-white outline-none transition-colors placeholder:text-white/25 focus:border-white"
+      />
     </div>
   );
 }
