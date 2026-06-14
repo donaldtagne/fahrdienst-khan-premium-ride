@@ -268,24 +268,13 @@ function Index() {
 
         {/* ABOUT band */}
         <section className="relative border-y border-white/5 bg-[oklch(0.09_0.025_260)]">
-          <div className="mx-auto grid max-w-7xl gap-12 px-4 py-24 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-32">
+          <div className="mx-auto max-w-3xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
             <Reveal>
-              <div className="relative">
-                <img src={aboutImg} alt="Luxury chauffeur" loading="lazy" width={1280} height={960} className="rounded-2xl border border-white/10 object-cover" style={{ boxShadow: "var(--shadow-elegant)" }} />
-                <div className="absolute -bottom-6 -right-6 hidden rounded-2xl glass-strong p-5 sm:block">
-                  <div className="flex items-center gap-1 text-[oklch(0.82_0.12_85)]">
-                    {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
-                  </div>
-                  <div className="mt-1 text-xs text-muted-foreground">Ihr lokaler Premium-Fahrdienst in Frankenthal</div>
-                </div>
-              </div>
-            </Reveal>
-            <Reveal delay={0.15}>
-              <div>
+              <div className="text-center">
                 <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[oklch(0.82_0.12_85)]">— {t("about.eyebrow")}</div>
                 <h2 className="mt-4 font-display text-5xl text-gradient-platinum sm:text-6xl">{t("about.title")}</h2>
-                <p className="mt-6 text-base leading-relaxed text-muted-foreground">{t("about.p1")}</p>
-                <p className="mt-4 text-base leading-relaxed text-muted-foreground">{t("about.p2")}</p>
+                <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">{t("about.p1")}</p>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">{t("about.p2")}</p>
               </div>
             </Reveal>
           </div>
