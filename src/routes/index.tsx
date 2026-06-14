@@ -132,7 +132,7 @@ function Index() {
                     <Phone className="h-4 w-4" /> {t("cta.call")}
                   </a>
                 </Button>
-                <Button asChild size="lg" variant="ghost" className="h-13 rounded-full px-7 text-foreground/80 hover:bg-white/10 hover:text-foreground">
+                <Button asChild size="lg" className="h-13 rounded-full bg-[#25D366] px-7 text-white hover:bg-[#1DA851]">
                   <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer">
                     {t("cta.whatsapp")}
                   </a>
@@ -370,7 +370,7 @@ function Index() {
                   <Button asChild size="lg" className="h-12 rounded-full bg-white px-6 text-[oklch(0.10_0.03_260)] hover:bg-white/90">
                     <a href={`tel:${CONTACT.phoneHref}`}><Phone className="h-4 w-4" /> {CONTACT.phone}</a>
                   </Button>
-                  <Button asChild size="lg" variant="outline" className="h-12 rounded-full border-white/20 bg-white/5 px-6 text-foreground hover:bg-white/10">
+                  <Button asChild size="lg" className="h-12 rounded-full bg-[#25D366] px-6 text-white hover:bg-[#1DA851]">
                     <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer">{t("cta.whatsapp")}</a>
                   </Button>
                 </div>
@@ -417,7 +417,7 @@ function Index() {
               <Button asChild size="lg" className="h-13 rounded-full bg-white px-7 text-[oklch(0.10_0.03_260)] hover:bg-white/90">
                 <a href={`tel:${CONTACT.phoneHref}`}><Phone className="h-5 w-5" /> {CONTACT.phone}</a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="h-13 rounded-full border-white/25 bg-white/5 px-7 text-foreground hover:bg-white/10">
+              <Button asChild size="lg" className="h-13 rounded-full bg-[#25D366] px-7 text-white hover:bg-[#1DA851]">
                 <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer">{t("cta.whatsapp")}</a>
               </Button>
             </div>
