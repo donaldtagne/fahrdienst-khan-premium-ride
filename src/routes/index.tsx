@@ -503,6 +503,7 @@ function Index() {
       </main>
       <Footer />
       <WhatsAppFab />
+      <MobileCallBar />
     </div>
   );
 }
