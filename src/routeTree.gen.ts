@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StreckenRouteImport } from './routes/strecken'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ReservierungenRouteImport } from './routes/reservierungen'
@@ -19,6 +20,11 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ReservierungTokenRouteImport } from './routes/reservierung.$token'
 
+const StreckenRoute = StreckenRouteImport.update({
+  id: '/strecken',
+  path: '/strecken',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/reservierungen': typeof ReservierungenRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/strecken': typeof StreckenRoute
   '/reservierung/$token': typeof ReservierungTokenRoute
 }
 export interface FileRoutesByTo {
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/reservierungen': typeof ReservierungenRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/strecken': typeof StreckenRoute
   '/reservierung/$token': typeof ReservierungTokenRoute
 }
 export interface FileRoutesById {
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/reservierungen': typeof ReservierungenRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/strecken': typeof StreckenRoute
   '/reservierung/$token': typeof ReservierungTokenRoute
 }
 export interface FileRouteTypes {
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/reservierungen'
     | '/services'
     | '/sitemap.xml'
+    | '/strecken'
     | '/reservierung/$token'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/reservierungen'
     | '/services'
     | '/sitemap.xml'
+    | '/strecken'
     | '/reservierung/$token'
   id:
     | '__root__'
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/reservierungen'
     | '/services'
     | '/sitemap.xml'
+    | '/strecken'
     | '/reservierung/$token'
   fileRoutesById: FileRoutesById
 }
@@ -144,11 +156,19 @@ export interface RootRouteChildren {
   ReservierungenRoute: typeof ReservierungenRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StreckenRoute: typeof StreckenRoute
   ReservierungTokenRoute: typeof ReservierungTokenRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/strecken': {
+      id: '/strecken'
+      path: '/strecken'
+      fullPath: '/strecken'
+      preLoaderRoute: typeof StreckenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -224,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReservierungenRoute: ReservierungenRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StreckenRoute: StreckenRoute,
   ReservierungTokenRoute: ReservierungTokenRoute,
 }
 export const routeTree = rootRouteImport
