@@ -101,7 +101,7 @@
   --shadow-card: 0 12px 40px -16px oklch(0 0 0 / 0.5);
   --shadow-glow: 0 0 60px oklch(0.6 0.18 255 / 0.35);
 
-  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
   --chart-1: oklch(0.646 0.222 41.116);
