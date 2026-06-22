@@ -9,16 +9,24 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StreckenRouteImport } from './routes/strecken'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ReservierungenRouteImport } from './routes/reservierungen'
 import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as GeschaeftskundenRouteImport } from './routes/geschaeftskunden'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as StreckenSlugRouteImport } from './routes/strecken.$slug'
 import { Route as ReservierungTokenRouteImport } from './routes/reservierung.$token'
 
+const StreckenRoute = StreckenRouteImport.update({
+  id: '/strecken',
+  path: '/strecken',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -37,6 +45,11 @@ const ReservierungenRoute = ReservierungenRouteImport.update({
 const ImpressumRoute = ImpressumRouteImport.update({
   id: '/impressum',
   path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GeschaeftskundenRoute = GeschaeftskundenRouteImport.update({
+  id: '/geschaeftskunden',
+  path: '/geschaeftskunden',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DatenschutzRoute = DatenschutzRouteImport.update({
@@ -59,6 +72,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StreckenSlugRoute = StreckenSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => StreckenRoute,
+} as any)
 const ReservierungTokenRoute = ReservierungTokenRouteImport.update({
   id: '/reservierung/$token',
   path: '/reservierung/$token',
@@ -70,22 +88,28 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/datenschutz': typeof DatenschutzRoute
+  '/geschaeftskunden': typeof GeschaeftskundenRoute
   '/impressum': typeof ImpressumRoute
   '/reservierungen': typeof ReservierungenRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/strecken': typeof StreckenRouteWithChildren
   '/reservierung/$token': typeof ReservierungTokenRoute
+  '/strecken/$slug': typeof StreckenSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/datenschutz': typeof DatenschutzRoute
+  '/geschaeftskunden': typeof GeschaeftskundenRoute
   '/impressum': typeof ImpressumRoute
   '/reservierungen': typeof ReservierungenRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/strecken': typeof StreckenRouteWithChildren
   '/reservierung/$token': typeof ReservierungTokenRoute
+  '/strecken/$slug': typeof StreckenSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -93,11 +117,14 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/datenschutz': typeof DatenschutzRoute
+  '/geschaeftskunden': typeof GeschaeftskundenRoute
   '/impressum': typeof ImpressumRoute
   '/reservierungen': typeof ReservierungenRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/strecken': typeof StreckenRouteWithChildren
   '/reservierung/$token': typeof ReservierungTokenRoute
+  '/strecken/$slug': typeof StreckenSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -106,33 +133,42 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/datenschutz'
+    | '/geschaeftskunden'
     | '/impressum'
     | '/reservierungen'
     | '/services'
     | '/sitemap.xml'
+    | '/strecken'
     | '/reservierung/$token'
+    | '/strecken/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contact'
     | '/datenschutz'
+    | '/geschaeftskunden'
     | '/impressum'
     | '/reservierungen'
     | '/services'
     | '/sitemap.xml'
+    | '/strecken'
     | '/reservierung/$token'
+    | '/strecken/$slug'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
     | '/datenschutz'
+    | '/geschaeftskunden'
     | '/impressum'
     | '/reservierungen'
     | '/services'
     | '/sitemap.xml'
+    | '/strecken'
     | '/reservierung/$token'
+    | '/strecken/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -140,15 +176,24 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   DatenschutzRoute: typeof DatenschutzRoute
+  GeschaeftskundenRoute: typeof GeschaeftskundenRoute
   ImpressumRoute: typeof ImpressumRoute
   ReservierungenRoute: typeof ReservierungenRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StreckenRoute: typeof StreckenRouteWithChildren
   ReservierungTokenRoute: typeof ReservierungTokenRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/strecken': {
+      id: '/strecken'
+      path: '/strecken'
+      fullPath: '/strecken'
+      preLoaderRoute: typeof StreckenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -175,6 +220,13 @@ declare module '@tanstack/react-router' {
       path: '/impressum'
       fullPath: '/impressum'
       preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/geschaeftskunden': {
+      id: '/geschaeftskunden'
+      path: '/geschaeftskunden'
+      fullPath: '/geschaeftskunden'
+      preLoaderRoute: typeof GeschaeftskundenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/datenschutz': {
@@ -205,6 +257,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/strecken/$slug': {
+      id: '/strecken/$slug'
+      path: '/$slug'
+      fullPath: '/strecken/$slug'
+      preLoaderRoute: typeof StreckenSlugRouteImport
+      parentRoute: typeof StreckenRoute
+    }
     '/reservierung/$token': {
       id: '/reservierung/$token'
       path: '/reservierung/$token'
@@ -215,27 +274,31 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface StreckenRouteChildren {
+  StreckenSlugRoute: typeof StreckenSlugRoute
+}
+
+const StreckenRouteChildren: StreckenRouteChildren = {
+  StreckenSlugRoute: StreckenSlugRoute,
+}
+
+const StreckenRouteWithChildren = StreckenRoute._addFileChildren(
+  StreckenRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   DatenschutzRoute: DatenschutzRoute,
+  GeschaeftskundenRoute: GeschaeftskundenRoute,
   ImpressumRoute: ImpressumRoute,
   ReservierungenRoute: ReservierungenRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StreckenRoute: StreckenRouteWithChildren,
   ReservierungTokenRoute: ReservierungTokenRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { WhatsAppFab } from "./WhatsAppFab";
+import { MobileCallBar } from "./MobileCallBar";
 
 export function PageLayout({ children }: { children: ReactNode }) {
   return (
@@ -10,6 +11,7 @@ export function PageLayout({ children }: { children: ReactNode }) {
       <main className="flex-1">{children}</main>
       <Footer />
       <WhatsAppFab />
+      <MobileCallBar />
     </div>
   );
 }

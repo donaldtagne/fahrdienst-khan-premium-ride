@@ -23,6 +23,14 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
     const fd = new FormData(form);
     const data = Object.fromEntries(fd.entries()) as Record<string, string>;
     const sendWhatsapp = (fd.get("send_whatsapp") as string | null) === "on";
+    const recurring = (fd.get("recurring") as string | null) === "on";
+    const flight = (data.flight || "").trim();
+
+    const extraNotes = [
+      flight ? `Flugnummer: ${flight}` : "",
+      recurring ? "Wiederkehrende Fahrt erwünscht" : "",
+    ].filter(Boolean).join(" · ");
+    const combinedNotes = [data.notes || "", extraNotes].filter(Boolean).join("\n");
 
     try {
       const res = await submit({
@@ -34,7 +42,7 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
           destination: data.destination,
           pickup_at: `${data.date}T${data.time}`,
           passengers: Number(data.passengers || 1),
-          notes: data.notes || "",
+          notes: combinedNotes,
         },
       });
       const url = `${window.location.origin}/reservierung/${res.token}`;
@@ -126,6 +134,7 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
         <Field label={t("booking.phone")} name="phone" type="tel" required maxLength={30} />
       </div>
       <Field label={t("booking.email")} name="email" type="email" maxLength={200} />
+      <Field label={t("booking.flight")} name="flight" placeholder="LH 1234" maxLength={20} />
       {!compact && (
         <div>
           <Label htmlFor="notes" className="mb-1.5 block text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -134,6 +143,14 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
           <Textarea id="notes" name="notes" rows={3} maxLength={500} className="rounded-lg border-white/10 bg-white/5 text-foreground focus-visible:border-white/30 focus-visible:ring-white/20" />
         </div>
       )}
+      <label className="flex items-center gap-2 text-xs text-muted-foreground">
+        <input
+          type="checkbox"
+          name="recurring"
+          className="h-4 w-4 rounded border-white/20 bg-white/5 accent-[oklch(0.82_0.12_85)]"
+        />
+        {t("booking.recurring")}
+      </label>
       <label className="flex items-center gap-2 text-xs text-muted-foreground">
         <input
           type="checkbox"
