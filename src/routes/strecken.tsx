@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Plane, MapPin, ArrowRight, Phone } from "lucide-react";
+import { Plane, MapPin, ArrowRight, Phone, Calculator } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFab } from "@/components/site/WhatsAppFab";
@@ -8,6 +8,7 @@ import { PageHero } from "@/components/site/PageLayout";
 import { Button } from "@/components/ui/button";
 import { ROUTES } from "@/lib/routes-data";
 import { useI18n, CONTACT } from "@/lib/i18n";
+import { PriceCalculator } from "@/components/site/PriceCalculator";
 
 export const Route = createFileRoute("/strecken")({
   head: () => ({
@@ -36,7 +37,25 @@ function StreckenIndex() {
             : "No hidden costs. Pick a popular route from Frankenthal – the price is fixed in advance."}
         />
 
+        {/* Preisrechner */}
+        <section id="rechner" className="relative border-b border-white/5 bg-[oklch(0.09_0.025_260)]">
+          <div className="absolute inset-0 opacity-50" style={{ background: "var(--gradient-hero)" }} />
+          <div className="relative mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
+            <div className="mb-8 text-center">
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-foreground/80">
+                <Calculator className="h-3 w-3" />
+                {lang === "de" ? "Preisrechner" : "Price calculator"}
+              </div>
+              <h2 className="font-display text-4xl text-gradient-platinum sm:text-5xl">
+                {lang === "de" ? "Preis sofort berechnen" : "Calculate price instantly"}
+              </h2>
+            </div>
+            <PriceCalculator />
+          </div>
+        </section>
+
         <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {ROUTES.map((r) => {
               const Icon = r.category === "airport" ? Plane : MapPin;
