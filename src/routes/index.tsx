@@ -21,6 +21,13 @@ import { ServiceCards } from "@/components/site/Services";
 import { Particles } from "@/components/site/Particles";
 import { CountUp } from "@/components/site/CountUp";
 import { HeroSlideshow } from "@/components/site/HeroSlideshow";
+import { PriceCalculator } from "@/components/site/PriceCalculator";
+import { PopularRoutes } from "@/components/site/PopularRoutes";
+import { TrustBadges } from "@/components/site/TrustBadges";
+import { ServiceArea } from "@/components/site/ServiceArea";
+import { BusinessSection } from "@/components/site/BusinessSection";
+import { MobileCallBar } from "@/components/site/MobileCallBar";
+import { Link } from "@tanstack/react-router";
 import { useI18n, CONTACT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
