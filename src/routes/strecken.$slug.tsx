@@ -6,7 +6,7 @@ import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 import { MobileCallBar } from "@/components/site/MobileCallBar";
 import { BookingForm } from "@/components/site/BookingForm";
 import { Button } from "@/components/ui/button";
-import { ROUTES, getRoute } from "@/lib/routes-data";
+import { ROUTES, getRoute, type RoutePreset } from "@/lib/routes-data";
 import { useI18n, CONTACT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/strecken/$slug")({
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/strecken/$slug")({
       ],
     };
   },
-  loader: ({ params }) => {
+  loader: ({ params }): RoutePreset => {
     const r = getRoute(params.slug);
     if (!r) throw notFound();
     return r;

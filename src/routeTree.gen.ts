@@ -18,6 +18,7 @@ import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as StreckenSlugRouteImport } from './routes/strecken.$slug'
 import { Route as ReservierungTokenRouteImport } from './routes/reservierung.$token'
 
 const StreckenRoute = StreckenRouteImport.update({
@@ -65,6 +66,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StreckenSlugRoute = StreckenSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => StreckenRoute,
+} as any)
 const ReservierungTokenRoute = ReservierungTokenRouteImport.update({
   id: '/reservierung/$token',
   path: '/reservierung/$token',
@@ -80,8 +86,9 @@ export interface FileRoutesByFullPath {
   '/reservierungen': typeof ReservierungenRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/strecken': typeof StreckenRoute
+  '/strecken': typeof StreckenRouteWithChildren
   '/reservierung/$token': typeof ReservierungTokenRoute
+  '/strecken/$slug': typeof StreckenSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -92,8 +99,9 @@ export interface FileRoutesByTo {
   '/reservierungen': typeof ReservierungenRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/strecken': typeof StreckenRoute
+  '/strecken': typeof StreckenRouteWithChildren
   '/reservierung/$token': typeof ReservierungTokenRoute
+  '/strecken/$slug': typeof StreckenSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -105,8 +113,9 @@ export interface FileRoutesById {
   '/reservierungen': typeof ReservierungenRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/strecken': typeof StreckenRoute
+  '/strecken': typeof StreckenRouteWithChildren
   '/reservierung/$token': typeof ReservierungTokenRoute
+  '/strecken/$slug': typeof StreckenSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/strecken'
     | '/reservierung/$token'
+    | '/strecken/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/strecken'
     | '/reservierung/$token'
+    | '/strecken/$slug'
   id:
     | '__root__'
     | '/'
@@ -145,6 +156,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/strecken'
     | '/reservierung/$token'
+    | '/strecken/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -156,7 +168,7 @@ export interface RootRouteChildren {
   ReservierungenRoute: typeof ReservierungenRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  StreckenRoute: typeof StreckenRoute
+  StreckenRoute: typeof StreckenRouteWithChildren
   ReservierungTokenRoute: typeof ReservierungTokenRoute
 }
 
@@ -225,6 +237,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/strecken/$slug': {
+      id: '/strecken/$slug'
+      path: '/$slug'
+      fullPath: '/strecken/$slug'
+      preLoaderRoute: typeof StreckenSlugRouteImport
+      parentRoute: typeof StreckenRoute
+    }
     '/reservierung/$token': {
       id: '/reservierung/$token'
       path: '/reservierung/$token'
@@ -235,6 +254,18 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface StreckenRouteChildren {
+  StreckenSlugRoute: typeof StreckenSlugRoute
+}
+
+const StreckenRouteChildren: StreckenRouteChildren = {
+  StreckenSlugRoute: StreckenSlugRoute,
+}
+
+const StreckenRouteWithChildren = StreckenRoute._addFileChildren(
+  StreckenRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -244,7 +275,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReservierungenRoute: ReservierungenRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  StreckenRoute: StreckenRoute,
+  StreckenRoute: StreckenRouteWithChildren,
   ReservierungTokenRoute: ReservierungTokenRoute,
 }
 export const routeTree = rootRouteImport
