@@ -23,6 +23,14 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
     const fd = new FormData(form);
     const data = Object.fromEntries(fd.entries()) as Record<string, string>;
     const sendWhatsapp = (fd.get("send_whatsapp") as string | null) === "on";
+    const recurring = (fd.get("recurring") as string | null) === "on";
+    const flight = (data.flight || "").trim();
+
+    const extraNotes = [
+      flight ? `Flugnummer: ${flight}` : "",
+      recurring ? "Wiederkehrende Fahrt erwünscht" : "",
+    ].filter(Boolean).join(" · ");
+    const combinedNotes = [data.notes || "", extraNotes].filter(Boolean).join("\n");
 
     try {
       const res = await submit({
@@ -34,7 +42,7 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
           destination: data.destination,
           pickup_at: `${data.date}T${data.time}`,
           passengers: Number(data.passengers || 1),
-          notes: data.notes || "",
+          notes: combinedNotes,
         },
       });
       const url = `${window.location.origin}/reservierung/${res.token}`;
