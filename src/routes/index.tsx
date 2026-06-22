@@ -468,7 +468,7 @@ function Index() {
           </Reveal>
           <Reveal delay={0.1}>
             <Accordion type="single" collapsible className="mt-12">
-              {[1, 2, 3, 4].map((i) => (
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
                 <AccordionItem key={i} value={`q${i}`} className="border-b border-white/10">
                   <AccordionTrigger className="text-left text-base font-medium text-foreground hover:no-underline">
                     {t(`faq.q${i}`)}
