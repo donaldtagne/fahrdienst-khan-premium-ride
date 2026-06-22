@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Plane, MapPin, ArrowRight, Phone } from "lucide-react";
+import { Plane, MapPin, ArrowRight, Phone, Calculator } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFab } from "@/components/site/WhatsAppFab";
@@ -8,6 +8,7 @@ import { PageHero } from "@/components/site/PageLayout";
 import { Button } from "@/components/ui/button";
 import { ROUTES } from "@/lib/routes-data";
 import { useI18n, CONTACT } from "@/lib/i18n";
+import { PriceCalculator } from "@/components/site/PriceCalculator";
 
 export const Route = createFileRoute("/strecken")({
   head: () => ({
