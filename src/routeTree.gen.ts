@@ -14,6 +14,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ReservierungenRouteImport } from './routes/reservierungen'
 import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as GeschaeftskundenRouteImport } from './routes/geschaeftskunden'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -44,6 +45,11 @@ const ReservierungenRoute = ReservierungenRouteImport.update({
 const ImpressumRoute = ImpressumRouteImport.update({
   id: '/impressum',
   path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GeschaeftskundenRoute = GeschaeftskundenRouteImport.update({
+  id: '/geschaeftskunden',
+  path: '/geschaeftskunden',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DatenschutzRoute = DatenschutzRouteImport.update({
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/datenschutz': typeof DatenschutzRoute
+  '/geschaeftskunden': typeof GeschaeftskundenRoute
   '/impressum': typeof ImpressumRoute
   '/reservierungen': typeof ReservierungenRoute
   '/services': typeof ServicesRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/datenschutz': typeof DatenschutzRoute
+  '/geschaeftskunden': typeof GeschaeftskundenRoute
   '/impressum': typeof ImpressumRoute
   '/reservierungen': typeof ReservierungenRoute
   '/services': typeof ServicesRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/datenschutz': typeof DatenschutzRoute
+  '/geschaeftskunden': typeof GeschaeftskundenRoute
   '/impressum': typeof ImpressumRoute
   '/reservierungen': typeof ReservierungenRoute
   '/services': typeof ServicesRoute
@@ -124,6 +133,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/datenschutz'
+    | '/geschaeftskunden'
     | '/impressum'
     | '/reservierungen'
     | '/services'
@@ -137,6 +147,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/datenschutz'
+    | '/geschaeftskunden'
     | '/impressum'
     | '/reservierungen'
     | '/services'
@@ -150,6 +161,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/datenschutz'
+    | '/geschaeftskunden'
     | '/impressum'
     | '/reservierungen'
     | '/services'
@@ -164,6 +176,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   DatenschutzRoute: typeof DatenschutzRoute
+  GeschaeftskundenRoute: typeof GeschaeftskundenRoute
   ImpressumRoute: typeof ImpressumRoute
   ReservierungenRoute: typeof ReservierungenRoute
   ServicesRoute: typeof ServicesRoute
@@ -207,6 +220,13 @@ declare module '@tanstack/react-router' {
       path: '/impressum'
       fullPath: '/impressum'
       preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/geschaeftskunden': {
+      id: '/geschaeftskunden'
+      path: '/geschaeftskunden'
+      fullPath: '/geschaeftskunden'
+      preLoaderRoute: typeof GeschaeftskundenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/datenschutz': {
@@ -271,6 +291,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   DatenschutzRoute: DatenschutzRoute,
+  GeschaeftskundenRoute: GeschaeftskundenRoute,
   ImpressumRoute: ImpressumRoute,
   ReservierungenRoute: ReservierungenRoute,
   ServicesRoute: ServicesRoute,
