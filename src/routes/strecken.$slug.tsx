@@ -117,7 +117,7 @@ function StreckeDetail() {
                 {lang === "de" ? "Was Sie bei dieser Fahrt erwarten dürfen" : "What's included on this ride"}
               </h2>
               <ul className="mt-6 space-y-4">
-                {r.highlights.map((h, i) => (
+                {r.highlights.map((h: { de: string; en: string }, i: number) => (
                   <li key={i} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4">
                     <div className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[oklch(0.82_0.12_85)]/20 text-[oklch(0.82_0.12_85)]">
                       <Check className="h-3.5 w-3.5" />
