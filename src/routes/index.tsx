@@ -285,6 +285,65 @@ function Index() {
           </div>
         </section>
 
+        {/* PRICE CALCULATOR + POPULAR ROUTES */}
+        <section className="relative border-y border-white/5 bg-[oklch(0.09_0.025_260)]">
+          <div className="absolute inset-0 opacity-50" style={{ background: "var(--gradient-hero)" }} />
+          <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+            <Reveal>
+              <div className="mb-12 text-center">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[oklch(0.82_0.12_85)]">— {t("routes.subtitle")}</div>
+                <h2 className="mt-4 font-display text-5xl text-gradient-platinum sm:text-6xl">{t("routes.title")}</h2>
+              </div>
+            </Reveal>
+            <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
+              <Reveal>
+                <PriceCalculator />
+              </Reveal>
+              <Reveal delay={0.1}>
+                <div>
+                  <PopularRoutes limit={6} />
+                  <div className="mt-6 text-center">
+                    <Button asChild variant="ghost" className="rounded-full border border-white/10 px-5 text-foreground hover:bg-white/5">
+                      <Link to="/strecken">
+                        {t("routes.viewAll")} <ChevronRight className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* TRUST */}
+        <section className="relative mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8 lg:py-36">
+          <Reveal>
+            <div className="mb-14 text-center">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[oklch(0.82_0.12_85)]">— {t("trust.eyebrow")}</div>
+              <h2 className="mt-4 font-display text-5xl text-gradient-platinum sm:text-6xl">{t("trust.title")}</h2>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <TrustBadges />
+          </Reveal>
+        </section>
+
+        {/* SERVICE AREA */}
+        <section className="relative border-y border-white/5 bg-[oklch(0.09_0.025_260)]">
+          <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+            <Reveal>
+              <ServiceArea />
+            </Reveal>
+          </div>
+        </section>
+
+        {/* BUSINESS */}
+        <section className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <Reveal>
+            <BusinessSection />
+          </Reveal>
+        </section>
+
         {/* ABOUT band */}
         <section className="relative border-y border-white/5 bg-[oklch(0.09_0.025_260)]">
           <div className="mx-auto max-w-3xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
