@@ -44,6 +44,8 @@ export function Footer() {
             {t("footer.legal")}
           </div>
           <ul className="space-y-3 text-sm text-foreground/85">
+            <li><Link to="/strecken" className="hover:text-foreground">{t("nav.routes")}</Link></li>
+            <li><Link to="/geschaeftskunden" className="hover:text-foreground">{t("nav.business")}</Link></li>
             <li><Link to="/impressum" className="hover:text-foreground">{t("footer.impressum")}</Link></li>
             <li><Link to="/datenschutz" className="hover:text-foreground">{t("footer.privacy")}</Link></li>
           </ul>
