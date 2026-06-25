@@ -18,54 +18,72 @@ export function ServiceArea() {
   const { t } = useI18n();
   return (
     <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr]">
-      {/* Map illustration */}
-      <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[oklch(0.18_0.04_260)] to-[oklch(0.10_0.025_260)]">
-        <svg viewBox="0 0 400 300" className="absolute inset-0 h-full w-full opacity-60">
-          <defs>
-            <radialGradient id="glow" cx="50%" cy="50%">
-              <stop offset="0%" stopColor="oklch(0.82 0.12 85)" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="oklch(0.82 0.12 85)" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-          {/* River Rhine stylized */}
-          <path d="M 80 20 Q 140 80 120 140 T 160 260 L 180 295" stroke="oklch(0.55 0.18 240 / 0.35)" strokeWidth="3" fill="none" />
-          {/* Roads */}
-          {Array.from({ length: 8 }).map((_, i) => (
-            <line key={i} x1="0" y1={40 + i * 32} x2="400" y2={20 + i * 35} stroke="oklch(1 0 0 / 0.04)" strokeWidth="1" />
-          ))}
-          {Array.from({ length: 10 }).map((_, i) => (
-            <line key={`v${i}`} x1={40 + i * 38} y1="0" x2={60 + i * 35} y2="300" stroke="oklch(1 0 0 / 0.04)" strokeWidth="1" />
-          ))}
-          {/* Glow over Frankenthal */}
-          <circle cx="170" cy="140" r="120" fill="url(#glow)" />
-        </svg>
-        {/* City pins */}
-        <div className="absolute left-[42%] top-[45%] -translate-x-1/2 -translate-y-1/2">
-          <div className="relative">
-            <div className="absolute inset-0 animate-ping rounded-full bg-[oklch(0.82_0.12_85)] opacity-30" style={{ width: 24, height: 24, margin: -12 }} />
-            <div className="relative grid h-3 w-3 place-items-center rounded-full bg-[oklch(0.82_0.12_85)] ring-4 ring-[oklch(0.82_0.12_85)]/30" />
-            <div className="absolute left-5 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-md bg-black/60 px-2 py-1 text-[10px] font-medium tracking-wide text-foreground backdrop-blur-sm">
-              Frankenthal
-            </div>
-          </div>
-        </div>
-        {[
-          { name: "Mannheim", x: "55%", y: "55%" },
-          { name: "Heidelberg", x: "70%", y: "62%" },
-          { name: "Worms", x: "38%", y: "30%" },
-          { name: "Speyer", x: "52%", y: "72%" },
-          { name: "FRA", x: "25%", y: "18%" },
-        ].map((p) => (
-          <div key={p.name} className="absolute" style={{ left: p.x, top: p.y }}>
+      {/* Map illustration — redesigned for readability */}
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[oklch(0.11_0.025_260)]">
+        <div className="relative aspect-[4/3] w-full">
+          {/* Subtle radial glow behind the map */}
+          <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(circle at 45% 50%, oklch(0.82 0.12 85 / 0.08) 0%, transparent 65%)" }} />
+
+          {/* Clean SVG base */}
+          <svg viewBox="0 0 400 300" className="absolute inset-0 h-full w-full">
+            {/* Rhine river — brighter, readable */}
+            <path d="M 60 10 Q 130 70 110 130 T 150 250 L 170 290" stroke="oklch(0.60 0.12 240 / 0.45)" strokeWidth="2.5" fill="none" />
+            {/* A6 / A61 highways stylized */}
+            <path d="M 0 180 Q 200 160 400 140" stroke="oklch(1 0 0 / 0.10)" strokeWidth="1.5" fill="none" strokeDasharray="6 4" />
+            <path d="M 180 0 Q 170 150 190 300" stroke="oklch(1 0 0 / 0.10)" strokeWidth="1.5" fill="none" strokeDasharray="6 4" />
+            {/* Connection lines between cities */}
+            <g stroke="oklch(0.82 0.12 85 / 0.12)" strokeWidth="1" strokeDasharray="4 4">
+              <line x1="170" y1="140" x2="220" y2="165" />
+              <line x1="170" y1="140" x2="280" y2="185" />
+              <line x1="170" y1="140" x2="150" y2="90" />
+              <line x1="170" y1="140" x2="208" y2="215" />
+              <line x1="170" y1="140" x2="100" y2="54" />
+            </g>
+          </svg>
+
+          {/* Frankenthal — highlighted home base */}
+          <div className="absolute" style={{ left: "42.5%", top: "46.5%" }}>
             <div className="relative -translate-x-1/2 -translate-y-1/2">
-              <div className="h-2 w-2 rounded-full bg-foreground/60 ring-2 ring-foreground/10" />
-              <div className="absolute left-3 top-1/2 -translate-y-1/2 whitespace-nowrap text-[10px] text-foreground/70">{p.name}</div>
+              <div className="absolute inset-0 animate-ping rounded-full bg-[oklch(0.82_0.12_85)] opacity-25" style={{ width: 28, height: 28, margin: -14 }} />
+              <div className="relative grid h-3.5 w-3.5 place-items-center rounded-full border border-white/30 bg-[oklch(0.82_0.12_85)] shadow-[0_0_12px_oklch(0.82_0.12_85_/_0.45)]" />
+              <div className="absolute left-5 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-md border border-white/15 bg-[oklch(0.15_0.03_260)]/90 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-foreground shadow-lg backdrop-blur-sm">
+                Frankenthal
+              </div>
             </div>
           </div>
-        ))}
-        <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-black/40 px-3 py-1.5 text-[10px] uppercase tracking-[0.22em] text-foreground/80 backdrop-blur-sm">
-          <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.82_0.12_85)]" />
-          {t("area.region")}
+
+          {/* Surrounding cities — readable badges */}
+          {[
+            { name: "Mannheim", x: "55%", y: "55%", sub: "~18 km" },
+            { name: "Heidelberg", x: "70%", y: "62%", sub: "~28 km" },
+            { name: "Worms", x: "37.5%", y: "30%", sub: "~22 km" },
+            { name: "Speyer", x: "52%", y: "72%", sub: "~15 km" },
+            { name: "Ludwigshafen", x: "46%", y: "52%", sub: "~12 km" },
+            { name: "FRA Airport", x: "25%", y: "18%", sub: "~85 km" },
+          ].map((p) => (
+            <div key={p.name} className="absolute" style={{ left: p.x, top: p.y }}>
+              <div className="relative -translate-x-1/2 -translate-y-1/2">
+                <div className="h-2.5 w-2.5 rounded-full border border-white/30 bg-white/80 shadow-sm" />
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 whitespace-nowrap">
+                  <span className="rounded-md border border-white/10 bg-[oklch(0.18_0.04_260)]/90 px-2 py-0.5 text-[11px] font-medium text-foreground shadow-sm backdrop-blur-sm">
+                    {p.name}
+                  </span>
+                  <span className="ml-1 rounded-md border border-white/10 bg-[oklch(0.82_0.12_85)]/15 px-1.5 py-0.5 text-[10px] font-medium text-[oklch(0.82_0.12_85)]">
+                    {p.sub}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom legend */}
+        <div className="flex items-center justify-between border-t border-white/10 bg-[oklch(0.13_0.03_260)]/60 px-5 py-3 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-foreground/80">
+            <span className="h-2 w-2 rounded-full bg-[oklch(0.82_0.12_85)] shadow-[0_0_6px_oklch(0.82_0.12_85_/_0.5)]" />
+            {t("area.region")}
+          </div>
+          <div className="text-[10px] text-muted-foreground">Rhein-Neckar Region</div>
         </div>
       </div>
 
