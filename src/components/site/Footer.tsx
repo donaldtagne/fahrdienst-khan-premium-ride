@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { useI18n, CONTACT } from "@/lib/i18n";
-import logoAsset from "@/assets/logo-fahrdienst-khan.png.asset.json";
+import logoAsset from "@/assets/logo-fahrdienst-khan-v2.png.asset.json";
 
 export function Footer() {
   const { t } = useI18n();
