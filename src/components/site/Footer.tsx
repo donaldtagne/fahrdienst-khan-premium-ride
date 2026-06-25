@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { useI18n, CONTACT } from "@/lib/i18n";
+import logoAsset from "@/assets/logo-fahrdienst-khan.png.asset.json";
 
 export function Footer() {
   const { t } = useI18n();
@@ -9,9 +10,12 @@ export function Footer() {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[oklch(0.82_0.12_85_/_0.5)] to-transparent" />
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div className="lg:col-span-2">
-          <div className="flex items-center gap-2">
-            <span className="grid h-10 w-10 place-items-center rounded-md border border-white/15 bg-white/5 font-display text-lg text-gradient-platinum">K</span>
-            <div className="font-display text-xl text-gradient-platinum">Fahrdienst Khan</div>
+          <div className="flex items-center">
+            <img
+              src={logoAsset.url}
+              alt="Fahrdienst Khan Logo"
+              className="h-16 w-auto object-contain"
+            />
           </div>
           <p className="mt-4 max-w-md text-sm text-muted-foreground">{t("footer.tagline")}</p>
           <div className="mt-6 inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs uppercase tracking-[0.22em] text-foreground/80">
