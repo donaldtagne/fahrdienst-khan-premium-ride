@@ -212,7 +212,7 @@ function Index() {
               <a href="/services">{t("nav.services")} <ChevronRight className="h-4 w-4" /></a>
             </Button>
           </div>
-          <ServiceCards />
+          <ServiceCards limit={3} />
         </section>
 
         {/* WHY / STATS */}

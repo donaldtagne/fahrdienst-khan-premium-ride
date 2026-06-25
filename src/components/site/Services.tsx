@@ -22,14 +22,15 @@ const ICONS = {
   corporate: Building2,
 } as const;
 
-export function ServiceCards() {
+export function ServiceCards({ limit }: { limit?: number }) {
   const { t } = useI18n();
   const [openKey, setOpenKey] = useState<(typeof SERVICE_KEYS)[number] | null>(null);
   const ActiveIcon = openKey ? ICONS[openKey] : null;
+  const keys = limit ? SERVICE_KEYS.slice(0, limit) : SERVICE_KEYS;
   return (
     <>
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {SERVICE_KEYS.map((k, i) => {
+      {keys.map((k, i) => {
         const Icon = ICONS[k];
         return (
           <motion.button
