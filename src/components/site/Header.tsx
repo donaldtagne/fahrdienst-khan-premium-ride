@@ -3,6 +3,7 @@ import { Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useI18n, CONTACT } from "@/lib/i18n";
+import logoAsset from "@/assets/logo-fahrdienst-khan.png.asset.json";
 
 export function Header() {
   const { t, lang, setLang } = useI18n();
