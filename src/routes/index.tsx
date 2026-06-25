@@ -301,7 +301,7 @@ function Index() {
               </Reveal>
               <Reveal delay={0.1}>
                 <div>
-                  <PopularRoutes limit={6} />
+                  <PopularRoutes limit={3} />
                   <div className="mt-6 text-center">
                     <Button asChild variant="ghost" className="rounded-full border border-white/10 px-5 text-foreground hover:bg-white/5">
                       <Link to="/strecken">
