@@ -35,12 +35,12 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2 shrink-0">
-          <span className="grid h-10 w-10 place-items-center rounded-md border border-white/15 bg-gradient-to-br from-white/15 to-white/5 font-display text-lg font-semibold text-gradient-platinum">K</span>
-          <span className="flex flex-col leading-tight">
-            <span className="font-display text-lg font-semibold text-foreground">Fahrdienst Khan</span>
-            <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Premium Chauffeur</span>
-          </span>
+        <Link to="/" className="flex shrink-0 items-center">
+          <img
+            src={logoAsset.url}
+            alt="Fahrdienst Khan Logo"
+            className="h-12 w-auto object-contain"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
